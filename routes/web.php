@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MultiImageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [MultiImageController::class, 'index'])->name('home');
+Route::post('/upload', [MultiImageController::class, 'store'])->name('store');
